@@ -1,0 +1,66 @@
+mutation CREATE_BLOG($title: String!, $description: String!, $shortDescription: String!, $coverImage: String!) {
+  createNewBlog(newBlog: {title: $title, description: $description, shortDescription: $shortDescription, coverImage: $coverImage}) {
+    title
+    description
+    shortDescription
+    coverImage
+    createdAt
+    updatedAt
+  }
+}
+
+mutation EditBlogByIDMutation($id: ID!,  $updatedBlog: blogUpdateInput) {
+  editBlogByID(id: $id, updatedBlog: $updatedBlog) {
+    title
+    description
+    shortDescription
+    metaData {
+      description
+      image
+    }
+    coverImage
+    createdAt
+    updatedAt
+  }
+}
+
+query Query {
+  getAllBlogs {
+    title
+    description
+    shortDescription
+    coverImage
+    createdAt
+    updatedAt
+  }
+}
+
+query getBlogByID($id: ID!) {
+  getBlogByID(id: $id) {
+    title
+    description
+    shortDescription
+    metaData {
+      description
+      image
+    }
+    coverImage
+    createdAt
+    updatedAt
+  }
+}
+
+//Variables for Updated Blog
+{
+  "id": "616daef01c41e2b2aaa983ea",
+  "updatedBlog": {
+    "title": "Edit again title",
+    "description": "Edit again descriotion",
+    "shortDescription": "Short Deccription Again ",
+    "coverImage": "https://media.istockphoto.com/photos/summer-background-low-angle-view-of-tropical-palm-trees-over-clear-picture-id1225394367?s=612x612",
+    "metaData": {
+      "description": "Meta description Updated",
+      "image": "https://media.istockphoto.com/photos/summer-background-low-angle-view-of-tropical-palm-trees-over-clear-picture-id1225394367?s=612x612"
+    }
+  }
+}
