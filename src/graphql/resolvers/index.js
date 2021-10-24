@@ -1,2 +1,3 @@
 import blog from './blog'
-export default [blog];
+import user from './user'
+export default [blog, user];
